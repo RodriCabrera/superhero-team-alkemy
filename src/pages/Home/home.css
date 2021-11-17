@@ -1,0 +1,6 @@
+.bg-home {
+	background-image: url(https://getyourcomicon.co.uk/wp-content/uploads/2020/07/HBOGCPD-Cityscape-Header.jpg);
+	background-size: cover;
+	background-position: top;
+	min-height: 100vh;
+}

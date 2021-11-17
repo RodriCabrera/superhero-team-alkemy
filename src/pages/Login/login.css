@@ -1,0 +1,10 @@
+.bg-img {
+	background-image: url(http://images2.fanpop.com/image/photos/14500000/Gotham-City-dc-comics-14582729-1169-523.jpg);
+	background-size: cover;
+	background-position: bottom;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
