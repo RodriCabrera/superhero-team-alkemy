@@ -32,7 +32,9 @@ const Layout = ({ children }) => {
 					</Navbar.Collapse>
 				</Container>
 			</Navbar>
-			<Container>{children}</Container>
+			<Container fluid="xxl" className="p-5">
+				{children}
+			</Container>
 		</>
 	);
 };

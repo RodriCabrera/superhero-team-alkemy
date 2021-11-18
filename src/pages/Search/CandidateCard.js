@@ -11,7 +11,9 @@ const CandidateCard = ({ c }) => {
 	return (
 		<Col key={c.id} xs={6} sm={4} className="mt-3">
 			<Card bg="dark" className="text-light">
-				<Card.Img variant="top" src={c.image.url} />
+				<div>
+					<Card.Img variant="top" src={c.image.url} />
+				</div>
 				<Card.Body>
 					{c.biography.alignment === "good" ? (
 						<Badge bg="primary">Good</Badge>

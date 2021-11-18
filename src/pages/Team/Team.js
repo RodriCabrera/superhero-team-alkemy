@@ -29,7 +29,7 @@ const Team = () => {
 			<Row>
 				<Stats />
 			</Row>
-			<Row xs={6} sm={4}>
+			<Row>
 				<TeamList />
 			</Row>
 		</>

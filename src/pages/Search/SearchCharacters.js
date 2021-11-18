@@ -13,20 +13,21 @@ import Candidates from "./Candidates";
 const axios = require("axios").default;
 
 const SearchCharacters = () => {
-	const [loading, setLoading] = React.useState(false);
+	const [status, setStatus] = React.useState("ok");
 	const [candidateList, setCandidateList] = React.useState([]);
 
 	const getCharacters = (name) => {
-		setLoading(true);
+		setStatus("loading");
 		axios
 			.get(`https://superheroapi.com/api.php/10227573912642267/search/${name}`)
 			.then((res) => {
-				setCandidateList(res.data.results);
+				setStatus(res.data.response);
+				if (res.data.response === "success") {
+					setCandidateList(res.data.results);
+				}
 			})
-			.catch((err) => console.log(err))
-			.finally(() => setLoading(false));
+			.catch((err) => console.log(err));
 	};
-
 	return (
 		<Container fluid="sm" className="mt-5">
 			<Row>
@@ -59,7 +60,7 @@ const SearchCharacters = () => {
 										onBlur={props.handleBlur}
 										value={props.values.character}
 									/>
-									{loading ? (
+									{status === "loading" ? (
 										<Button variant="secondary" disabled>
 											<Spinner
 												as="span"
@@ -77,7 +78,10 @@ const SearchCharacters = () => {
 									)}
 								</Form.Group>
 								{props.errors.character && props.touched.character && (
-									<Badge bg="danger">{props.errors.character}</Badge>
+									<Badge bg="info">{props.errors.character}</Badge>
+								)}
+								{status === "error" && (
+									<Badge bg="danger">Character not found</Badge>
 								)}
 							</Form>
 						)}

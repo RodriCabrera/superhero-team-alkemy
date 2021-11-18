@@ -13,30 +13,18 @@ export function TeamProvider({ children }) {
 		strength: 0,
 	});
 
-	const calculateStats = () => {
-		let combat = 0;
-		let durability = 0;
-		let intelligence = 0;
-		let power = 0;
-		let speed = 0;
-		let strength = 0;
-
-		for (let elem of team) {
-			combat += elem.character.powerstats.combat;
-			durability += elem.character.powerstats.durability;
-			intelligence += elem.character.powerstats.intelligence;
-			power += elem.character.powerstats.power;
-			speed += elem.character.powerstats.speed;
-			strength += elem.character.powerstats.strength;
-		}
-	};
+	const calculateStats = () => {};
 
 	const isInTeam = (id) => {
 		return team.some((elem) => elem.character.id === id);
 	};
 
 	const addCharacter = (character) => {
-		if (isInTeam(character.id)) {
+		console.log("team.length", team.length);
+		if (team.length >= 6) {
+			console.log("mayor que 6");
+			return;
+		} else if (isInTeam(character.id)) {
 			return;
 		}
 		setTeam((prevState) => [...prevState, { character }]);
