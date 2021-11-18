@@ -1,25 +1,23 @@
 import React from "react";
 import Login from "./pages/Login";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useAuth } from "./auth/hooks";
-import RequireAuth from "./auth/RequireAuth";
 import Home from "./pages/Home/Home";
+import Team from "./pages/Team/Team";
+import SearchCharacters from "./pages/Search/SearchCharacters";
+import { useTeam } from "./pages/Team/context";
 
 function App() {
-	const { checkAuth } = useAuth();
-	console.log(checkAuth());
+	const { team } = useTeam();
+	console.log("TEAM", team);
 	return (
 		<Router>
 			<Routes>
-				<Route
-					path="/"
-					element={
-						<RequireAuth>
-							<Home />
-						</RequireAuth>
-					}
-				/>
-				<Route path="/login" element={<Login />} />
+				<Route path="login" element={<Login />} />
+				<Route path="/" element={<Home />}>
+					<Route index element={<Team />} />
+					<Route path="team" element={<Team />} />
+					<Route path="search" element={<SearchCharacters />} />
+				</Route>
 			</Routes>
 		</Router>
 	);

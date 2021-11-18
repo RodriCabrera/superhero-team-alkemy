@@ -1,12 +1,12 @@
 import React from "react";
-import { Button, Form, Stack, Card } from "react-bootstrap";
+import { Button, Form, Stack, Card, Spinner } from "react-bootstrap";
 import { Formik } from "formik";
 import { useAuth } from "../../auth/hooks";
 import { useNavigate } from "react-router";
 import "./login.css";
 
 const Login = () => {
-	const { signin, loading, checkAuth } = useAuth();
+	const { login, loading, checkAuth } = useAuth();
 	let navigate = useNavigate();
 
 	React.useEffect(() => {
@@ -23,7 +23,9 @@ const Login = () => {
 				text="light"
 				style={{ minWidth: "270px" }}
 			>
-				<Card.Header>Ingresar a Superhero Team</Card.Header>
+				<Card.Header>
+					<h1>Welcome to Superhero Team</h1>
+				</Card.Header>
 				<Card.Body>
 					<Formik
 						initialValues={{
@@ -44,7 +46,7 @@ const Login = () => {
 							return errors;
 						}}
 						onSubmit={(values) => {
-							signin(values.email, values.password);
+							login(values.email, values.password);
 						}}
 					>
 						{(props) => (
@@ -54,7 +56,7 @@ const Login = () => {
 									<Form.Control
 										id="email"
 										name="email"
-										placeholder="jane@acme.com"
+										placeholder="challenge@alkemy.org"
 										type="email"
 										onChange={props.handleChange}
 										onBlur={props.handleBlur}
@@ -72,7 +74,7 @@ const Login = () => {
 										type="password"
 										id="password"
 										name="password"
-										placeholder="Password"
+										placeholder="react"
 										onChange={props.handleChange}
 										onBlur={props.handleBlur}
 										value={props.values.password}
@@ -84,7 +86,9 @@ const Login = () => {
 									)}
 								</Form.Group>
 								{loading ? (
-									<p>Loading</p>
+									<Spinner animation="border" role="status">
+										<span className="visually-hidden">Loading...</span>
+									</Spinner>
 								) : (
 									<Stack direction="horizontal" gap={3}>
 										<Button type="submit">Submit</Button>

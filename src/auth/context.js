@@ -11,7 +11,7 @@ export function AuthProvider({ children }) {
 	});
 	const [loading, setLoading] = React.useState(false);
 
-	const signin = (email, password) => {
+	const login = (email, password) => {
 		setLoading(true);
 		axios({
 			method: "post",
@@ -35,7 +35,7 @@ export function AuthProvider({ children }) {
 			});
 	};
 
-	const signout = () => {
+	const logout = () => {
 		localStorage.removeItem("superhero_token");
 		setUser({});
 		console.log("Usuario deslogueado.");
@@ -45,7 +45,7 @@ export function AuthProvider({ children }) {
 		return localStorage.getItem("superhero_token") ? true : false;
 	};
 
-	const value = { user, signin, signout, checkAuth, loading };
+	const value = { user, login, logout, checkAuth, loading };
 
 	return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
