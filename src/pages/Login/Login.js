@@ -16,7 +16,7 @@ const Login = () => {
 	}, [checkAuth, navigate]);
 
 	return (
-		<div className="bg-img">
+		<div className="bg-login">
 			<Card
 				className="p-0 text-center w-50"
 				bg="dark"

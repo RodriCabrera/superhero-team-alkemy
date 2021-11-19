@@ -17,7 +17,7 @@ const TeamCardFront = ({ c, handleClick }) => {
 		<Card bg="dark" className="text-light">
 			<Card.Header>
 				<Stack direction="horizontal" gap={3}>
-					<h3>{c.name}</h3>
+					<h4>{c.name}</h4>
 					{c.biography.alignment === "good" ? (
 						<Badge bg="primary">Good</Badge>
 					) : (

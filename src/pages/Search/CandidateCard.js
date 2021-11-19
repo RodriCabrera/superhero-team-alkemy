@@ -9,7 +9,7 @@ const CandidateCard = ({ c }) => {
 	}, [isInTeam, c.id]);
 
 	return (
-		<Col key={c.id} xs={6} sm={3} className="mt-3">
+		<Col key={c.id} xs={6} sm={4} md={3} className="mt-3">
 			<Card bg="dark" className="text-light">
 				<div style={{ maxHeight: "500px", overflow: "hidden" }}>
 					<Card.Img variant="top" src={c.image.url} />
