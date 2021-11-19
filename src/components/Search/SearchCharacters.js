@@ -16,6 +16,7 @@ const axios = require("axios").default;
 const SearchCharacters = () => {
 	const [status, setStatus] = React.useState("ok");
 	const [candidateList, setCandidateList] = React.useState([]);
+
 	const getCharacters = (name) => {
 		setStatus("loading");
 		axios
@@ -34,6 +35,7 @@ const SearchCharacters = () => {
 			<Row>
 				<Col>
 					<h1 className="text-light text-center">Search Characters</h1>
+					{/* esto puede ser componente aparte de solo formulario */}
 					<Formik
 						initialValues={{
 							character: "",

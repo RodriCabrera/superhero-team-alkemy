@@ -4,13 +4,16 @@ import { Navbar, Container, Nav, Badge } from "react-bootstrap";
 import { GiDoubleFaceMask } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { BsBoxArrowRight, BsSearch } from "react-icons/bs";
-import { useAuth } from "../../../auth/hooks";
-import { useTeam } from "../../Team/context";
+import { useAuth } from "../../../utils/auth/hooks";
+import { useTeam } from "../../../components/Team/context";
+
 const Layout = ({ children }) => {
 	const { logout } = useAuth();
 	const { team } = useTeam();
 	return (
 		<>
+			{/* separado a otro componente el NAVBAR */}
+			{/* deshacer Layout. porque solo tiene navbar */}
 			<Navbar bg="dark" variant="dark" expand="lg" fixed="top">
 				<Container fluid="xxl">
 					<Navbar.Brand as={Link} to="/">

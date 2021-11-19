@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Badge, Button, Stack, ProgressBar } from "react-bootstrap";
-import { useTeam } from "../context";
+import { useTeam } from "../../../utils/context/teamContext";
 
 const TeamCardFront = ({ c, handleClick }) => {
 	const { removeCharacter } = useTeam();

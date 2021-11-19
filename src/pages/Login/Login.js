@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Form, Stack, Card, Spinner } from "react-bootstrap";
 import { Formik } from "formik";
-import { useAuth } from "../../auth/hooks";
+import { useAuth } from "../../utils/hooks/useAuth";
 import { useNavigate } from "react-router";
 import "../../styles.css";
 
@@ -27,6 +27,7 @@ const Login = () => {
 					<h1>Welcome to Superhero Team</h1>
 				</Card.Header>
 				<Card.Body>
+					{/* pasar este form a componente tambien */}
 					<Formik
 						initialValues={{
 							email: "",
