@@ -3,7 +3,7 @@ import { Button, Form, Stack, Card, Spinner } from "react-bootstrap";
 import { Formik } from "formik";
 import { useAuth } from "../../auth/hooks";
 import { useNavigate } from "react-router";
-import "./login.css";
+import "../../styles.css";
 
 const Login = () => {
 	const { login, loading, checkAuth } = useAuth();

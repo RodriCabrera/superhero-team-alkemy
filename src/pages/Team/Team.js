@@ -9,6 +9,8 @@ const Team = () => {
 	const { team, calculateStats } = useTeam();
 	console.log("calculatestats", calculateStats());
 	console.log("Team", team);
+
+	// Si no hay equipo:
 	if (team.length === 0) {
 		return (
 			<>
@@ -23,13 +25,13 @@ const Team = () => {
 			</>
 		);
 	}
+	// Si hay equipo:
 	return (
 		<>
-			<h1 className="text-light text-center mt-3">My Superhero Team</h1>
 			<Row>
 				<Stats />
 			</Row>
-			<Row>
+			<Row className="p-3 scroll-box">
 				<TeamList />
 			</Row>
 		</>

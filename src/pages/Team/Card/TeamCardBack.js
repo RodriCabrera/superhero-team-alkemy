@@ -1,9 +1,7 @@
 import React from "react";
 import { Table, Card, Button } from "react-bootstrap";
-import TeamCard from "./TeamCard";
 
 const TeamCardBack = ({ c, handleClick }) => {
-	console.log(c);
 	return (
 		<Card bg="dark" className="text-light">
 			<Card.Body>
@@ -26,7 +24,7 @@ const TeamCardBack = ({ c, handleClick }) => {
 							<td>Alias</td>
 							<td>
 								{c.biography.aliases.map((alias) => (
-									<li>{alias}</li>
+									<li key={alias}>{alias}</li>
 								))}
 							</td>
 						</tr>

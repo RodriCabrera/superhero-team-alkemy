@@ -11,7 +11,7 @@ const TeamCard = ({ c }) => {
 		setIsFlipped((prevState) => !prevState);
 	};
 	return (
-		<Col xs={12} sm={6} md={4} className="mt-3">
+		<Col xs={12} sm={6} md={3} className="mt-3">
 			<ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
 				<TeamCardFront c={c} handleClick={handleClick} />
 				<TeamCardBack c={c} handleClick={handleClick} />

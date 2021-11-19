@@ -4,25 +4,32 @@ export const TeamContext = React.createContext(null);
 
 export function TeamProvider({ children }) {
 	const [team, setTeam] = React.useState([]);
-	const [teamStats, setTeamStats] = React.useState({
-		combat: 0,
-		durability: 0,
-		intelligence: 0,
-		power: 0,
-		speed: 0,
-		strength: 0,
-	});
+	// const [teamStats, setTeamStats] = React.useState({
+	// 	combat: 0,
+	// 	durability: 0,
+	// 	intelligence: 0,
+	// 	power: 0,
+	// 	speed: 0,
+	// 	strength: 0,
+	// });
 
 	const calculateStats = () => {};
+
+	const caluclateGood = () => {
+		let good = 0;
+		let bad = 0;
+		console.log(team);
+		for (let elem of team) {
+			console.log(elem.character);
+		}
+	};
 
 	const isInTeam = (id) => {
 		return team.some((elem) => elem.character.id === id);
 	};
 
 	const addCharacter = (character) => {
-		console.log("team.length", team.length);
 		if (team.length >= 6) {
-			console.log("mayor que 6");
 			return;
 		} else if (isInTeam(character.id)) {
 			return;
@@ -42,6 +49,7 @@ export function TeamProvider({ children }) {
 		removeCharacter,
 		isInTeam,
 		calculateStats,
+		caluclateGood,
 	};
 
 	return <TeamContext.Provider value={value}>{children}</TeamContext.Provider>;

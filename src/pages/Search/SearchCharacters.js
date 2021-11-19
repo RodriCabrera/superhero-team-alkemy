@@ -1,4 +1,5 @@
 import React from "react";
+import "../../styles.css";
 import {
 	Form,
 	Button,
@@ -15,7 +16,6 @@ const axios = require("axios").default;
 const SearchCharacters = () => {
 	const [status, setStatus] = React.useState("ok");
 	const [candidateList, setCandidateList] = React.useState([]);
-
 	const getCharacters = (name) => {
 		setStatus("loading");
 		axios
@@ -28,10 +28,11 @@ const SearchCharacters = () => {
 			})
 			.catch((err) => console.log(err));
 	};
+
 	return (
 		<Container fluid="sm" className="mt-5">
 			<Row>
-				<Col className="mt-3">
+				<Col>
 					<h1 className="text-light text-center">Search Characters</h1>
 					<Formik
 						initialValues={{
@@ -88,7 +89,7 @@ const SearchCharacters = () => {
 					</Formik>
 				</Col>
 			</Row>
-			<Row className="pt-3 pb-2">
+			<Row className="p-0 m-0 scroll-box">
 				<Candidates candidateList={candidateList} />
 			</Row>
 		</Container>

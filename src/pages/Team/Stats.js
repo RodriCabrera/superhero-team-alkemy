@@ -1,13 +1,17 @@
 import React from "react";
-import { Stack, ProgressBar } from "react-bootstrap";
+import { Stack, ProgressBar, Container } from "react-bootstrap";
+import "../../styles.css";
 const Stats = () => {
 	return (
-		<Stack gap={3} className="bg-dark p-3">
-			{/* <ProgressBar variant="success" now={40} />
-			<ProgressBar variant="info" now={20} />
-			<ProgressBar variant="warning" now={60} />
-			<ProgressBar variant="danger" now={80} /> */}
-		</Stack>
+		<Container className="mt-4">
+			<Stack gap={3} className="p-3 bg-blur ">
+				<h4 className="text-light">Team Powerstats</h4>
+				<ProgressBar now={0} />
+				<ProgressBar now={0} />
+				<ProgressBar now={0} />
+				<ProgressBar now={0} />
+			</Stack>
+		</Container>
 	);
 };
 

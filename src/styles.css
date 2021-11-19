@@ -1,0 +1,30 @@
+.bg-home {
+	background-image: url(https://getyourcomicon.co.uk/wp-content/uploads/2020/07/HBOGCPD-Cityscape-Header.jpg);
+	background-size: cover;
+	background-position: top;
+	height: 100vh;
+	max-height: 100vh;
+}
+
+.bg-login {
+	background-image: url(http://images2.fanpop.com/image/photos/14500000/Gotham-City-dc-comics-14582729-1169-523.jpg);
+	background-size: cover;
+	background-position: bottom;
+	height: 100vh;
+	max-height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.bg-blur {
+	background-color: rgba(22, 22, 22, 0);
+	backdrop-filter: blur(3px);
+	min-height: 100%;
+}
+.scroll-box {
+	overflow: scroll;
+	height: 600px;
+}

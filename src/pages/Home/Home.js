@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "./components/Layout";
-import "./home.css";
+import "../../styles.css";
 import RequireAuth from "../../auth/RequireAuth";
 import { Outlet } from "react-router";
 

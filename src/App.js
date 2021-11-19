@@ -7,8 +7,8 @@ import SearchCharacters from "./pages/Search/SearchCharacters";
 import { useTeam } from "./pages/Team/context";
 
 function App() {
-	const { team } = useTeam();
-	console.log("TEAM", team);
+	const { team, caluclateGood } = useTeam();
+	console.log(caluclateGood());
 	return (
 		<Router>
 			<Routes>
