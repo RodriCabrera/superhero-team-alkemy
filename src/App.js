@@ -4,11 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Team from "./components/Team/Team";
 import SearchCharacters from "./components/Search/SearchCharacters";
-import { useTeam } from "./utils/hooks/useTeam";
 
 function App() {
-	const { team, calculateGood } = useTeam();
-	console.log(calculateGood());
 	return (
 		<Router>
 			<Routes>

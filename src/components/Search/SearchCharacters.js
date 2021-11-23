@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap";
 import { Formik } from "formik";
 import Candidates from "./Candidates";
+
 const axios = require("axios").default;
 
 const SearchCharacters = () => {
@@ -31,7 +32,7 @@ const SearchCharacters = () => {
 	};
 
 	return (
-		<Container fluid="sm" className="pt-5 h-75">
+		<Container fluid="sm" className="pt-2 h-75">
 			<Row>
 				<Col>
 					<h1 className="text-light text-center">Search Characters</h1>

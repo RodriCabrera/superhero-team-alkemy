@@ -10,7 +10,7 @@ const Home = () => {
 		<RequireAuth>
 			<div className="bg-home">
 				<Navbar />
-				<Container fluid="xxl" className="pt-5 h-100">
+				<Container fluid="sm" className="pt-5 h-100">
 					<Outlet />
 				</Container>
 			</div>

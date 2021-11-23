@@ -6,9 +6,8 @@ import Stats from "./Stats";
 import TeamList from "./TeamList";
 import "../../styles.css";
 const Team = () => {
-	const { team, calculateStats } = useTeam();
-	console.log("calculatestats", calculateStats());
-	console.log("Team", team);
+	const { team } = useTeam();
+	// console.log("Team", team);
 
 	// Si no hay equipo:
 	if (team.length === 0) {
