@@ -6,13 +6,12 @@ export const AuthContext = React.createContext(null);
 export function AuthProvider({ children }) {
 	const [user, setUser] = React.useState({
 		email: "",
-		password: "",
 		isAuth: false,
 	});
-	const [loading, setLoading] = React.useState(false);
+	const [status, setStatus] = React.useState("ok");
 
 	const login = (email, password) => {
-		setLoading(true);
+		setStatus("loading");
 		axios({
 			method: "post",
 			url: "http://challenge-react.alkemy.org/",
@@ -24,14 +23,13 @@ export function AuthProvider({ children }) {
 			.then((res) => {
 				console.log(res);
 				localStorage.setItem("superhero_token", res.data.token);
-				setUser({ email: email, password: password });
-				console.log(
-					`Logged in. EMAIL: ${email}, PASSWORD: ${password}, token:${res.data.token}`
-				);
+				setUser({ email: email, isAuth: true });
+				console.log(`Logged in. EMAIL: ${email}`);
+				setStatus("ok");
 			})
-			.catch((err) => console.log(err))
-			.finally(() => {
-				setLoading(false);
+			.catch((err) => {
+				console.log(err);
+				setStatus("error");
 			});
 	};
 
@@ -45,7 +43,7 @@ export function AuthProvider({ children }) {
 		return localStorage.getItem("superhero_token") ? true : false;
 	};
 
-	const value = { user, login, logout, checkAuth, loading };
+	const value = { user, login, logout, checkAuth, status };
 
 	return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

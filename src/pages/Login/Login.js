@@ -1,12 +1,12 @@
 import React from "react";
-import { Button, Form, Stack, Card, Spinner } from "react-bootstrap";
+import { Button, Form, Stack, Card, Spinner, Badge } from "react-bootstrap";
 import { Formik } from "formik";
 import { useAuth } from "../../utils/hooks/useAuth";
 import { useNavigate } from "react-router";
 import "../../styles.css";
 
 const Login = () => {
-	const { login, loading, checkAuth } = useAuth();
+	const { login, status, checkAuth } = useAuth();
 	let navigate = useNavigate();
 
 	React.useEffect(() => {
@@ -14,7 +14,7 @@ const Login = () => {
 			navigate("/", { replace: true });
 		}
 	}, [checkAuth, navigate]);
-
+	console.log(status);
 	return (
 		<div className="bg-login">
 			<Card
@@ -85,8 +85,11 @@ const Login = () => {
 											{props.errors.password}
 										</Form.Text>
 									)}
+									{status === "error" && (
+										<Badge bg="danger">Error. Please try again.</Badge>
+									)}
 								</Form.Group>
-								{loading ? (
+								{status === "loading" ? (
 									<Spinner animation="border" role="status">
 										<span className="visually-hidden">Loading...</span>
 									</Spinner>
