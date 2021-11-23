@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useTeam } from "../../utils/hooks/useTeam";
 import Stats from "./Stats";
 import TeamList from "./TeamList";
-
+import "../../styles.css";
 const Team = () => {
 	const { team, calculateStats } = useTeam();
 	console.log("calculatestats", calculateStats());
@@ -27,16 +27,14 @@ const Team = () => {
 	}
 	// Si hay equipo:
 	return (
-		<>
+		<Container fluid="sm" className="pt-3 h-75">
 			<Row>
 				<Stats />
 			</Row>
-			<Container>
-				<Row className="p-3">
-					<TeamList />
-				</Row>
-			</Container>
-		</>
+			<Row className="scroll-box">
+				<TeamList />
+			</Row>
+		</Container>
 	);
 };
 

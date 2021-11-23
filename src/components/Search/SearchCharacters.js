@@ -31,7 +31,7 @@ const SearchCharacters = () => {
 	};
 
 	return (
-		<Container fluid="sm" className=" h-75">
+		<Container fluid="sm" className="pt-5 h-75">
 			<Row>
 				<Col>
 					<h1 className="text-light text-center">Search Characters</h1>
