@@ -30,7 +30,7 @@ const Team = () => {
 			<Row>
 				<Stats />
 			</Row>
-			<Row className="scroll-box">
+			<Row className="scroll-box bg-blur">
 				<TeamList />
 			</Row>
 		</Container>
