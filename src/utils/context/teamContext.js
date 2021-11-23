@@ -15,7 +15,7 @@ export function TeamProvider({ children }) {
 
 	const calculateStats = () => {};
 
-	const caluclateGood = () => {
+	const calculateGood = () => {
 		let good = 0;
 		let bad = 0;
 		console.log(team);
@@ -49,18 +49,8 @@ export function TeamProvider({ children }) {
 		removeCharacter,
 		isInTeam,
 		calculateStats,
-		caluclateGood,
+		calculateGood,
 	};
 
 	return <TeamContext.Provider value={value}>{children}</TeamContext.Provider>;
 }
-
-export const useTeam = () => {
-	const context = React.useContext(TeamContext);
-	if (!context) {
-		throw new Error(
-			"El hook useTeam debe ser usado dentro de un TeamContext Provider."
-		);
-	}
-	return context;
-};

@@ -1,14 +1,14 @@
 import React from "react";
 import Login from "./pages/Login";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home/Home";
-import Team from "./pages/Team/Team";
-import SearchCharacters from "./pages/Search/SearchCharacters";
-import { useTeam } from "./pages/Team/context";
+import Home from "./pages/Home";
+import Team from "./components/Team/Team";
+import SearchCharacters from "./components/Search/SearchCharacters";
+import { useTeam } from "./utils/hooks/useTeam";
 
 function App() {
-	const { team, caluclateGood } = useTeam();
-	console.log(caluclateGood());
+	const { team, calculateGood } = useTeam();
+	console.log(calculateGood());
 	return (
 		<Router>
 			<Routes>

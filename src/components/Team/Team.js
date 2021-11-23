@@ -1,7 +1,7 @@
 import React from "react";
-import { Row, Button } from "react-bootstrap";
+import { Row, Button, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useTeam } from "./context";
+import { useTeam } from "../../utils/hooks/useTeam";
 import Stats from "./Stats";
 import TeamList from "./TeamList";
 
@@ -31,9 +31,11 @@ const Team = () => {
 			<Row>
 				<Stats />
 			</Row>
-			<Row className="p-3 scroll-box">
-				<TeamList />
-			</Row>
+			<Container>
+				<Row className="p-3">
+					<TeamList />
+				</Row>
+			</Container>
 		</>
 	);
 };

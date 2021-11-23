@@ -31,7 +31,7 @@ const SearchCharacters = () => {
 	};
 
 	return (
-		<Container fluid="sm" className="mt-5">
+		<Container fluid="sm" className=" h-75">
 			<Row>
 				<Col>
 					<h1 className="text-light text-center">Search Characters</h1>
@@ -91,7 +91,7 @@ const SearchCharacters = () => {
 					</Formik>
 				</Col>
 			</Row>
-			<Row className="p-0 m-0 scroll-box">
+			<Row className="scroll-box">
 				<Candidates candidateList={candidateList} />
 			</Row>
 		</Container>

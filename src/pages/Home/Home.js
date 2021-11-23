@@ -1,16 +1,18 @@
 import React from "react";
-import Layout from "./components/Layout";
 import "../../styles.css";
-import RequireAuth from "../../auth/RequireAuth";
 import { Outlet } from "react-router";
+import RequireAuth from "../../utils/auth/RequireAuth";
+import Navbar from "../../components/Navbar/Navbar";
+import { Container } from "react-bootstrap";
 
 const Home = () => {
 	return (
 		<RequireAuth>
 			<div className="bg-home">
-				<Layout>
+				<Navbar />
+				<Container fluid="xxl" className="pt-5 h-100">
 					<Outlet />
-				</Layout>
+				</Container>
 			</div>
 		</RequireAuth>
 	);

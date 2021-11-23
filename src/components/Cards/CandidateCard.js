@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Card, Button, Badge } from "react-bootstrap";
-import { useTeam } from "../Team/context";
+import { useTeam } from "../../utils/hooks/useTeam";
+import CardHeader from "./CardHeader";
 
 const CandidateCard = ({ c }) => {
 	const { addCharacter, removeCharacter, isInTeam } = useTeam();
@@ -9,19 +10,12 @@ const CandidateCard = ({ c }) => {
 	}, [isInTeam, c.id]);
 
 	return (
-		<Col key={c.id} xs={6} sm={4} md={3} className="mt-3">
+		<Col xs={6} sm={4} lg={3} className="mt-3 h-100">
 			<Card bg="dark" className="text-light">
-				<div style={{ maxHeight: "500px", overflow: "hidden" }}>
-					<Card.Img variant="top" src={c.image.url} />
-				</div>
-				<Card.Body>
-					{c.biography.alignment === "good" ? (
-						<Badge bg="primary">Good</Badge>
-					) : (
-						<Badge bg="danger">Bad</Badge>
-					)}
+				<CardHeader c={c} />
 
-					<Card.Title className="mt-2">{c.name}</Card.Title>
+				<Card.Body>
+					{/* Botones: */}
 					{isInTeam(c.id) ? (
 						<Button
 							variant="outline-danger"
