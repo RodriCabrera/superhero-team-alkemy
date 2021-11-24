@@ -2,12 +2,11 @@ import React from "react";
 import { Row, Button, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useTeam } from "../../utils/hooks/useTeam";
-// import Stats from "./Stats";
+import Stats from "./Stats";
 import TeamList from "./TeamList";
 import "../../styles.css";
 const Team = () => {
 	const { team } = useTeam();
-	// console.log("Team", team);
 
 	// Si no hay equipo:
 	if (team.length === 0) {
@@ -26,11 +25,11 @@ const Team = () => {
 	}
 	// Si hay equipo:
 	return (
-		<Container fluid="sm" className="pt-3 h-100">
-			{/* <Row>
+		<Container fluid="sm" className="pt-3 h-100 bg-blur scroll-box">
+			<Row>
 				<Stats />
-			</Row> */}
-			<Row className="scroll-box bg-blur">
+			</Row>
+			<Row className="mt-4 ">
 				<TeamList />
 			</Row>
 		</Container>

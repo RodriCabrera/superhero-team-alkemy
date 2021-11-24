@@ -7,7 +7,9 @@ const TeamList = () => {
 
 	return (
 		team &&
-		team.map((e) => <TeamCard c={e.character} key={e.character.id}></TeamCard>)
+		team.map((teamMember) => (
+			<TeamCard c={teamMember} key={teamMember.id}></TeamCard>
+		))
 	);
 };
 

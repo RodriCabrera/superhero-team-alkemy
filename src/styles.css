@@ -24,18 +24,16 @@
 .bg-blur {
 	background-color: rgba(22, 22, 22, 0);
 	backdrop-filter: blur(3px);
-	min-height: 100%;
 }
 .scroll-box {
 	overflow: scroll;
 	max-height: 100%;
-	/* padding: 1rem; */
 }
 
 /* Scrollbar: */
 /* width */
 ::-webkit-scrollbar {
-	width: 10px;
+	width: 5px;
 }
 /* Track */
 ::-webkit-scrollbar-track {
@@ -43,6 +41,6 @@
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	background: rgb(236, 236, 236);
+	background: rgb(102, 102, 102);
 	border-radius: 10px;
 }

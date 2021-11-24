@@ -4,14 +4,7 @@ export const TeamContext = React.createContext(null);
 
 export function TeamProvider({ children }) {
 	const [team, setTeam] = React.useState([]);
-	// const [teamStats, setTeamStats] = React.useState({
-	// 	combat: 0,
-	// 	durability: 0,
-	// 	intelligence: 0,
-	// 	power: 0,
-	// 	speed: 0,
-	// 	strength: 0,
-	// });
+
 	const calculateStats = () => {};
 
 	function checkCharacter(character) {
@@ -19,8 +12,8 @@ export function TeamProvider({ children }) {
 		let bad = 0;
 
 		if (team.length < 6) {
-			team.forEach((elem) => {
-				elem.character.biography.alignment === "good" ? good++ : bad++;
+			team.forEach((teamMember) => {
+				teamMember.biography.alignment === "good" ? good++ : bad++;
 			});
 
 			if (character.biography.alignment === "good" && good > 2) {
@@ -37,19 +30,17 @@ export function TeamProvider({ children }) {
 	}
 
 	const isInTeam = (id) => {
-		return team.some((elem) => elem.character.id === id);
+		return team.some((elem) => elem.id === id);
 	};
 
 	const addCharacter = (character) => {
 		if (checkCharacter(character)) {
-			setTeam((prevState) => [...prevState, { character }]);
+			setTeam((prevState) => [...prevState, character]);
 		}
 	};
 
 	const removeCharacter = (id) => {
-		setTeam((prevState) =>
-			prevState.filter((elem) => elem.character.id !== id)
-		);
+		setTeam((prevState) => prevState.filter((elem) => elem.id !== id));
 	};
 
 	const value = {
