@@ -19,6 +19,14 @@ export function AuthProvider({ children }) {
 				email: email,
 				password: password,
 			},
+			headers: {
+				"Access-Control-Allow-Origin": "*",
+				"Access-Control-Allow-Headers": "*",
+				"Content-Type": "application/json",
+				"Access-Control-Allow-Credentials": "true",
+				"Access-Control-Allow-Methods": "POST",
+				"Access-Control-Max-Age": 86400,
+			},
 		})
 			.then((res) => {
 				console.log(res);
