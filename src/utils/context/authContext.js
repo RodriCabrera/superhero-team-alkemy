@@ -12,21 +12,22 @@ export function AuthProvider({ children }) {
 
 	const login = (email, password) => {
 		setStatus("loading");
+
 		axios({
 			method: "post",
-			url: "http://challenge-react.alkemy.org/",
+			url: "http://challenge-react.alkemy.org",
 			data: {
 				email: email,
 				password: password,
 			},
-			headers: {
-				"Access-Control-Allow-Origin": "*",
-				"Access-Control-Allow-Headers": "*",
-				"Content-Type": "application/json",
-				"Access-Control-Allow-Credentials": "true",
-				"Access-Control-Allow-Methods": "POST",
-				"Access-Control-Max-Age": 86400,
-			},
+			// headers: {
+			// 	"Access-Control-Allow-Origin": "*",
+			// 	"Access-Control-Allow-Headers": "*",
+			// 	"Content-Type": "*",
+			// 	"Access-Control-Allow-Credentials": "true",
+			// 	"Access-Control-Allow-Methods": "POST",
+			// 	"Access-Control-Max-Age": 86400,
+			// },
 		})
 			.then((res) => {
 				console.log(res);
