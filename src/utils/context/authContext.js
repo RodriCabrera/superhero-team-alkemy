@@ -15,7 +15,7 @@ export function AuthProvider({ children }) {
 
 		axios({
 			method: "post",
-			url: "http://challenge-react.alkemy.org",
+			url: "https://challenge-react.alkemy.org",
 			data: {
 				email: email,
 				password: password,
