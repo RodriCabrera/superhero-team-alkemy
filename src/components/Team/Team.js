@@ -26,10 +26,10 @@ const Team = () => {
 	}
 	// Si hay equipo:
 	return (
-		<Container fluid="sm" className="pt-3 h-75">
-			<Row>
+		<Container fluid="sm" className="pt-3 h-100">
+			{/* <Row>
 				<Stats />
-			</Row>
+			</Row> */}
 			<Row className="scroll-box bg-blur">
 				<TeamList />
 			</Row>
