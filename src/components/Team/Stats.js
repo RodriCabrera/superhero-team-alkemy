@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Container, Row } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Container, Row, Stack, Badge, Col } from "react-bootstrap";
 import "../../styles.css";
 import { useTeam } from "../../utils/hooks/useTeam";
 import TeamStatProgress from "./TeamStatProgress";
@@ -14,10 +14,11 @@ let initialStats = {
 };
 
 const Stats = () => {
-	const [stats, setStats] = React.useState(initialStats);
-	const [teamSpeciality, setTeamSpeciality] = React.useState(
-		Object.keys(stats)[0]
-	);
+	const [stats, setStats] = useState(initialStats);
+	const [teamSpeciality, setTeamSpeciality] = useState(Object.keys(stats)[0]);
+	const [weight, setWeight] = useState(0);
+	const [height, setHeight] = useState(0);
+
 	const { team } = useTeam();
 
 	const reduceStat = (heroTeam, stat) => {
@@ -29,6 +30,16 @@ const Stats = () => {
 				),
 			0
 		);
+	};
+
+	const reduceMeasure = (heroTeam, measure) => {
+		const number =
+			heroTeam.reduce(
+				(sum, sumHero) =>
+					sum + parseInt(sumHero.appearance[measure][1].replace(/kgcm/, "")),
+				0
+			) / heroTeam.length;
+		return isNaN(number) ? 0 : number;
 	};
 
 	// Update Team's sum of powerstats every time it is updated (add or remove hero)
@@ -51,6 +62,11 @@ const Stats = () => {
 		setTeamSpeciality(Object.keys(newStats)[0]);
 	}, [team]);
 
+	useEffect(() => {
+		setWeight(Math.round(reduceMeasure(team, "weight")));
+		setHeight(Math.round(reduceMeasure(team, "height")));
+	}, [team]);
+
 	const statRows = [];
 	for (let property in stats) {
 		if (property !== teamSpeciality) {
@@ -59,6 +75,7 @@ const Stats = () => {
 					key={property}
 					stat={property.toUpperCase()}
 					value={stats[property]}
+					specialityValue={stats[teamSpeciality]}
 				/>
 			);
 		}
@@ -74,8 +91,25 @@ const Stats = () => {
 				value={stats[teamSpeciality]}
 				badgeBg="success"
 				badgeText="light"
+				specialityValue={stats[teamSpeciality]}
 			/>
 			{statRows.map((elem) => elem)}
+			<Row>
+				<Col xs={4} sm={3} md={2} xl={1}>
+					<Badge bg="secondary">Avg. Weight</Badge>
+				</Col>
+				<Col>
+					<Badge bg="secondary">{weight} kg</Badge>
+				</Col>
+			</Row>
+			<Row>
+				<Col xs={4} sm={3} md={2} xl={1}>
+					<Badge bg="secondary">Avg. Height</Badge>
+				</Col>
+				<Col>
+					<Badge bg="secondary">{height} cm</Badge>
+				</Col>
+			</Row>
 		</Container>
 	);
 };

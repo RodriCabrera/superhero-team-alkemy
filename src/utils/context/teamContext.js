@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const TeamContext = React.createContext(null);
 
 export function TeamProvider({ children }) {
-	const [team, setTeam] = React.useState([]);
+	const [team, setTeam] = useState([]);
 
 	const calculateStats = () => {};
 
