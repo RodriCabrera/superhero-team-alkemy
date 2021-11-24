@@ -15,7 +15,7 @@ export function AuthProvider({ children }) {
 
 		axios({
 			method: "post",
-			url: "http://challenge-react.alkemy.org",
+			url: "https://api-proxy-for-superhero-team.vercel.app/api/",
 			data: {
 				email: email,
 				password: password,
