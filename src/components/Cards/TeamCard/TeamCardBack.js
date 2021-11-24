@@ -4,9 +4,9 @@ import { Table, Card, Button } from "react-bootstrap";
 const TeamCardBack = ({ c, handleClick }) => {
 	return (
 		<Card bg="dark" className="text-light">
-			<Card.Body>
-				<Card.Title className="mt-2 text-center">{c.name}</Card.Title>
-				<Table striped hover variant="dark">
+			<Card.Body className="p-0">
+				<Card.Title className="mt-1 text-center">{c.name}</Card.Title>
+				<Table striped hover variant="dark" className="p-0">
 					<tbody>
 						<tr>
 							<td>Weight</td>
@@ -46,9 +46,11 @@ const TeamCardBack = ({ c, handleClick }) => {
 						</tr>
 					</tbody>
 				</Table>
-				<Button variant="outline-light" onClick={handleClick}>
-					Back
-				</Button>
+				<div className="d-grid gap-2">
+					<Button variant="outline-light" onClick={handleClick}>
+						Back
+					</Button>
+				</div>
 			</Card.Body>
 		</Card>
 	);
