@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Button, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useTeam } from "../../utils/hooks/useTeam";
-import Stats from "./Stats";
+// import Stats from "./Stats";
 import TeamList from "./TeamList";
 import "../../styles.css";
 const Team = () => {
