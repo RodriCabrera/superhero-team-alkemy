@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Stack, Badge, Col } from "react-bootstrap";
+import { Container, Row, Badge, Col } from "react-bootstrap";
 import "../../styles.css";
 import { useTeam } from "../../utils/hooks/useTeam";
 import TeamStatProgress from "./TeamStatProgress";
