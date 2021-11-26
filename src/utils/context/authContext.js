@@ -20,20 +20,11 @@ export function AuthProvider({ children }) {
 				email: email,
 				password: password,
 			},
-			// headers: {
-			// 	"Access-Control-Allow-Origin": "*",
-			// 	"Access-Control-Allow-Headers": "*",
-			// 	"Content-Type": "*",
-			// 	"Access-Control-Allow-Credentials": "true",
-			// 	"Access-Control-Allow-Methods": "POST",
-			// 	"Access-Control-Max-Age": 86400,
-			// },
 		})
 			.then((res) => {
 				console.log(res);
 				localStorage.setItem("superhero_token", res.data.token);
 				setUser({ email: email, isAuth: true });
-				console.log(`Logged in. EMAIL: ${email}`);
 				setStatus("ok");
 			})
 			.catch((err) => {
@@ -45,7 +36,6 @@ export function AuthProvider({ children }) {
 	const logout = () => {
 		localStorage.removeItem("superhero_token");
 		setUser({});
-		console.log("Usuario deslogueado.");
 	};
 
 	const checkAuth = () => {

@@ -15,7 +15,6 @@ const Login = () => {
 		}
 	}, [checkAuth, navigate]);
 
-	console.log(status);
 	return (
 		<div className="bg-login">
 			<Card
